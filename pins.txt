@@ -1,21 +1,68 @@
 Pins on the mega & uses
-52: dec limit
-    declination limit switch
-53: dec limit 2
-    declination limit switch 
-51: asc limit
-    ascention limit switch
-50: controller connected led
-    ACTIVE when handheld is connected
-49: PC / RasPi connected led
-    ACTIVE when Pc / RasPi is conected
-48: tracking led
-    ACTIVE when tracking an object
-47: warn piezo
-    ACTIVE when any important error is returned from a function
-0: tx to nano rx
-    will send lcd & led data to the nano 
-1: rx from nano tx
-    recives button and encoder data from nano
+    d0: tx to nano rx
+        will send lcd & led data to the nano 
+    d1: rx from nano tx
+        recives button and encoder data from nano
+    d2: asc h-bridge 1
+    d3: asc h-bridge 2
+    d4: dec h-bridge 1
+    d5: dec h-bridge 2
+    d6: focus h-bridge 1
+    d7: focus h-bridge 2
+    d8: estop
+        stops all motor movements, does not change parameters
+    d9:
+    d10:
+    d11:
+    d12:
+    d13:
+    d14:
+    d15:
+    d16:
+    d17:
+    d18: 
+    d19: 
+    d20:
+    d21:
+    d22:
+    d23:
+    d24:
+    d25:
+    d26:
+    d27:
+    d28:
+    d29:
+    d30:
+    d31:
+    d32:
+    d33:
+    d34: 
+    d35: 
+    d36:
+    d37:
+    d38:
+    d39:
+    d40:
+    d41:
+    d42:
+    d43:
+    d44:
+    d45: 
+    d46: heater led
+        ACTIVE when heater is on
+    d47: warn piezo
+        ACTIVE when any important error is returned from a function
+    d48: tracking led
+        ACTIVE when tracking an object
+    d49: PC / RasPi connected led
+        ACTIVE when Pc / RasPi is conected
+    d50: controller connected led
+        ACTIVE when handheld is connected 
+    d51: asc limit
+        ascention limit switch   
+    d52: dec limit
+        declination limit switch
+    d53: dec limit 2
+        declination limit switch 
 
 pins on the nano
