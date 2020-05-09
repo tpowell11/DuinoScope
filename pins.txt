@@ -1,8 +1,21 @@
-Pins on the mega
-52: dec limit 
+Pins on the mega & uses
+52: dec limit
+    declination limit switch
 53: dec limit 2
+    declination limit switch 
 51: asc limit
+    ascention limit switch
+50: controller connected led
+    ACTIVE when handheld is connected
+49: PC / RasPi connected led
+    ACTIVE when Pc / RasPi is conected
+48: tracking led
+    ACTIVE when tracking an object
+47: warn piezo
+    ACTIVE when any important error is returned from a function
 0: tx to nano rx
+    will send lcd & led data to the nano 
 1: rx from nano tx
+    recives button and encoder data from nano
 
 pins on the nano
