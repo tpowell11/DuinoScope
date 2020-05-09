@@ -27,32 +27,26 @@
 
 void setup() 
 {
-  //Set the modes for the SPI IO
-  pinMode(SPI_SCLK, OUTPUT);
-  pinMode(SPI_MOSI, OUTPUT);
-  pinMode(SPI_MISO, INPUT);
-  pinMode(ENC_0, OUTPUT);
-  pinMode(ENC_1, OUTPUT);
-  
-  //Initialize the UART serial connection for debugging
-  Serial.begin(BAUDRATE);
+  //encoder setup
+    //Set the modes for the SPI IO
+    pinMode(SPI_SCLK, OUTPUT);
+    pinMode(SPI_MOSI, OUTPUT);
+    pinMode(SPI_MISO, INPUT);
+    pinMode(ENC_0, OUTPUT);
+    pinMode(ENC_1, OUTPUT);
+    
+    //Initialize the UART serial connection for debugging
+    Serial.begin(BAUDRATE);
 
-  //Get the CS line high which is the default inactive state
-  digitalWrite(ENC_0, HIGH);
-  digitalWrite(ENC_1, HIGH);
+    //Get the CS line high which is the default inactive state
+    digitalWrite(ENC_0, HIGH);
+    digitalWrite(ENC_1, HIGH);
 
-  //set the clockrate. Uno clock rate is 16Mhz, divider of 32 gives 500 kHz.
-  //500 kHz is a good speed for our test environment
-  //SPI.setClockDivider(SPI_CLOCK_DIV2);   // 8 MHz
-  //SPI.setClockDivider(SPI_CLOCK_DIV4);   // 4 MHz
-  //SPI.setClockDivider(SPI_CLOCK_DIV8);   // 2 MHz
-  //SPI.setClockDivider(SPI_CLOCK_DIV16);  // 1 MHz
-  SPI.setClockDivider(SPI_CLOCK_DIV32);    // 500 kHz
-  //SPI.setClockDivider(SPI_CLOCK_DIV64);  // 250 kHz
-  //SPI.setClockDivider(SPI_CLOCK_DIV128); // 125 kHz
-  
-  //start SPI bus
-  SPI.begin();
+    //set the clockrate. Uno clock rate is 16Mhz, divider of 32 gives 500 kHz.
+    //500 kHz is a good speed for our test environment
+    SPI.setClockDivider(SPI_CLOCK_DIV32);    // 500 kHz
+    //start SPI bus
+    SPI.begin();
 }
 
 void loop() 

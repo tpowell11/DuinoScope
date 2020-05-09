@@ -1,101 +1,109 @@
 Pins on the mega & uses
-    d0: tx to nano rx
-        will send lcd & led data to the nano 
-    d1: rx from nano tx
-        recives button and encoder data from nano
-    d2: asc h-bridge 1
-    d3: asc h-bridge 2
-    d4: dec h-bridge 1
-    d5: dec h-bridge 2
-    d6: focus h-bridge 1
-    d7: focus h-bridge 2
-    d8: estop
-        stops all motor movements, does not change parameters [KEY = EST]
-    d9: dec enc 1
-        SCLC{enc. pin 2}
-    d10: dec enc 1
-        MOSI{enc. pin 3}
-    d11: dec enc 1
-        MISO{enc. pin 5}
-    d12: dec enc 1
-        CHIP SELECT{enc. pin 2}
-    d13:
-    d14:
-    d15:
-    d16:
-    d17:
-    d18: 
-    d19: 
-    d20:
-    d21:
-    d22:
-    d23:
-    d24:
-    d25:
-    d26:
-    d27:
-    d28:
-    d29:
-    d30:
-    d31:
-    d32:
-    d33:
-    d34: 
-    d35: 
-    d36:
-    d37:
-    d38:
-    d39:
-    d40:
-    d41:
-    d42:
-    d43:
-    d44:
-    d45: 
-    d46: heater led
-        ACTIVE when heater is on
-    d47: warn piezo
-        ACTIVE when any important error is returned from a function
-    d48: tracking led
-        ACTIVE when tracking an object
-    d49: PC / RasPi connected led
-        ACTIVE when Pc / RasPi is conected
-    d50: controller connected led
-        ACTIVE when handheld is connected 
-    d51: asc limit
-        ascention limit switch   
-    d52: dec limit
-        declination limit switch
-    d53: dec limit 2
-        declination limit switch 
+        d0: tx to nano rx
+            will send lcd & led data to the nano 
+        d1: rx from nano tx
+            recives button and encoder data from nano
+    motors
+        d2: asc h-bridge 1
+        d3: asc h-bridge 2
+        d4: dec h-bridge 1
+        d5: dec h-bridge 2
+        d6: focus h-bridge 1
+        d7: focus h-bridge 2
+        d8: estop
+            stops all motor movements, does not change parameters [KEY = EST]
+    encoders
+        d9: dec enc 1
+            SCLC{enc. pin 2}
+        d10: dec enc 1
+            MOSI{enc. pin 3}
+        d11: dec enc 1
+            MISO{enc. pin 5}
+        d12: dec enc 1
+            CHIP SELECT{enc. pin 2}
+        d13: asc enc 1
+            SCLC{enc. pin 2}
+        d14: asc enc 1
+            MOSI{enc. pin 3}
+        d15: asc enc 1
+            MISO{enc. pin 5}
+        d16: asc enc 1
+            CHIP SELECT{enc. pin 2}
+    limit switches
+        d17: asc lim 1
+        d18: asc lim 2
+        d19: dec lim 1
+        d20:
+        d21:
+        d22:
+        d23:
+        d24:
+        d25:
+        d26:
+        d27:
+        d28:
+        d29:
+        d30:
+        d31:
+        d32:
+        d33:
+        d34: 
+        d35: 
+        d36:
+        d37:
+        d38:
+        d39:
+        d40:
+        d41:
+        d42:
+        d43:
+        d44:
+        d45: 
+    buzzers / leds
+        d46: heater led
+            ACTIVE when heater is on
+        d47: warn piezo
+            ACTIVE when any important error is returned from a function
+        d48: tracking led
+            ACTIVE when tracking an object
+        d49: PC / RasPi connected led
+            ACTIVE when Pc / RasPi is conected
+        d50: controller connected led
+            ACTIVE when handheld is connected 
+        d51:   
+        d52: 
+        d53: 
 pins on the nano
-    d0: tx to mega
-        sends button & encoder data
-    d1: rx from mega
-        recives lcd & led data
-    d2: lcd
-    d3: lcd
-    d4: lcd
-    d5: lcd
-    d6: lcd
-    d7: lcd
-    d8: enc
-        coding line of the encoder
-    d9: enc 
-        coding line of the encoder
-    d10: fxn switch 
-        3 positon switch to chose between asc, dec and focus motors
-    d11: res switch
-        3 positon switch to chose between 3 motor speeds
-    d12: cancel button
-        stops track & reinits to recive new tracking data [KEY = CAN]
-    d13: pause button
-        halts motors, keeps all data in tact  [KEY = PAU]
-    d14:
-    d15:
-    d16:
-    d17:
-    d18: 
-    d19: 
-    d20:
-    d21:
+        d0: tx to mega
+            sends button & encoder data
+        d1: rx from mega
+            recives lcd & led data
+    lcd
+        d2: lcd
+        d3: lcd
+        d4: lcd
+        d5: lcd
+        d6: lcd
+        d7: lcd
+    encoder
+        d8: enc
+            coding line of the encoder
+        d9: enc 
+            coding line of the encoder
+    switches / buttons
+        d10: fxn switch 
+            3 positon switch to chose between asc, dec and focus motors
+        d11: res switch
+            3 positon switch to chose between 3 motor speeds
+        d12: cancel button
+            stops track & reinits to recive new tracking data [KEY = CAN]
+        d13: pause button
+            halts motors, keeps all data in tact  [KEY = PAU]
+        d14:
+        d15:
+        d16:
+        d17:
+        d18: 
+        d19: 
+        d20:
+        d21:
