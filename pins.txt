@@ -1,0 +1,8 @@
+Pins on the mega
+52: dec limit 
+53: dec limit 2
+51: asc limit
+0: tx to nano rx
+1: rx from nano tx
+
+pins on the nano
