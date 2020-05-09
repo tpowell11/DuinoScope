@@ -64,5 +64,32 @@ Pins on the mega & uses
         declination limit switch
     d53: dec limit 2
         declination limit switch 
-
 pins on the nano
+    d0: tx to mega
+        sends button & encoder data
+    d1: rx from mega
+        recives lcd & led data
+    d2: lcd
+    d3: lcd
+    d4: lcd
+    d5: lcd
+    d6: lcd
+    d7: lcd
+    d8: enc
+        coding line of the encoder
+    d9: enc 
+        coding line of the encoder
+    d10: fxn switch 
+        3 positon switch to chose between asc, dec and focus motors
+    d11: res switch
+        3 positon switch to chose between 3 motor speeds
+    d12:
+    d13:
+    d14:
+    d15:
+    d16:
+    d17:
+    d18: 
+    d19: 
+    d20:
+    d21:
