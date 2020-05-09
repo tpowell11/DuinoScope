@@ -10,11 +10,15 @@ Pins on the mega & uses
     d6: focus h-bridge 1
     d7: focus h-bridge 2
     d8: estop
-        stops all motor movements, does not change parameters
-    d9:
-    d10:
-    d11:
-    d12:
+        stops all motor movements, does not change parameters [KEY = EST]
+    d9: dec enc 1
+        SCLC{enc. pin 2}
+    d10: dec enc 1
+        MOSI{enc. pin 3}
+    d11: dec enc 1
+        MISO{enc. pin 5}
+    d12: dec enc 1
+        CHIP SELECT{enc. pin 2}
     d13:
     d14:
     d15:
@@ -83,8 +87,10 @@ pins on the nano
         3 positon switch to chose between asc, dec and focus motors
     d11: res switch
         3 positon switch to chose between 3 motor speeds
-    d12:
-    d13:
+    d12: cancel button
+        stops track & reinits to recive new tracking data [KEY = CAN]
+    d13: pause button
+        halts motors, keeps all data in tact  [KEY = PAU]
     d14:
     d15:
     d16:
