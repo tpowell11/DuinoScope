@@ -33,8 +33,11 @@ Pins on the mega & uses
         d17: asc lim 1
         d18: asc lim 2
         d19: dec lim 1
-        d20:
-        d21:
+    gps
+        d20: gps 1
+            pins for EM-406A gps module
+        d21: gps 2
+            ibid
         d22:
         d23:
         d24:
@@ -70,7 +73,8 @@ Pins on the mega & uses
             ACTIVE when Pc / RasPi is conected
         d50: controller connected led
             ACTIVE when handheld is connected 
-        d51:   
+        d51: estop led
+            ACTIVE when Estop is true  
         d52: 
         d53: 
 pins on the nano

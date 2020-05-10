@@ -1,7 +1,6 @@
 #include<Arduino.h>
 #include<Wire.h>
-/* Include the SPI library for the arduino boards */
-#include <SPI.h>
+#include <SPI.h>/* Include the SPI library for the arduino boards */
 //#include <I2Cdriver.h> for nano serial comm
 //encoder pin defs
   /* Serial rates for UART */
@@ -33,6 +32,7 @@
   #define warnpiezo   47
   #define extcommled  49
   #define contconnect 50
+  #define estopLed    51
 //motion control pin defs
   #define ascHbridge1  2
   #define ascHbridge2  3
@@ -46,8 +46,21 @@
 //nano communication defs
   #define toNano   0
   #define fromNano 1
-void setup() 
-{
+
+
+
+//misc. pins
+  #define gpsRx 20
+  #define gpsTx 21
+//variables
+  bool Estop = false;
+  bool ascLim = false;
+  bool ascLim2 = false; 
+  bool decLim = false;
+  bool error = false;
+  float currentAsc = 0;
+  float currentDec = 0;
+void setup() {
   //encoder setup
 
     //Set the modes for the SPI IO
@@ -75,6 +88,7 @@ void setup()
     pinMode(warnpiezo, OUTPUT);
     pinMode(extcommled, OUTPUT);
     pinMode(contconnect, OUTPUT);
+    pinMode(estopLed, OUTPUT);
   //motion control pins
     pinMode(ascHbridge1, OUTPUT);
     pinMode(ascHbridge2, OUTPUT);
@@ -86,12 +100,20 @@ void setup()
     pinMode(asclim2, INPUT);
     pinMode(declim1, INPUT);
   //nano communication pins & cfg
-    
+
 }
 
 void loop() {
   //run logic
-
+    if (digitalRead(estop) == HIGH){
+        Estop = true;
+        digitalWrite(estopLed, HIGH);
+    }
+    if (error = true){
+      //stop motors, keep track data, piezo
+      digitalWrite(warnpiezo, HIGH);
+    }
+    
   //serial to nano {telescope_controller}
   //encoder stuff
     //create a 16 bit variable to hold the encoders position
