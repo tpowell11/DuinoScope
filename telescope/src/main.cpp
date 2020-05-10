@@ -1,33 +1,55 @@
-
+#include<Arduino.h>
+#include<Wire.h>
 /* Include the SPI library for the arduino boards */
 #include <SPI.h>
+//#include <I2Cdriver.h> for nano serial comm
+//encoder pin defs
+  /* Serial rates for UART */
+  #define BAUDRATE        115200
 
-/* Serial rates for UART */
-#define BAUDRATE        115200
+  /* SPI commands */
+  #define AMT22_NOP       0x00
+  #define AMT22_RESET     0x60
+  #define AMT22_ZERO      0x70
 
-/* SPI commands */
-#define AMT22_NOP       0x00
-#define AMT22_RESET     0x60
-#define AMT22_ZERO      0x70
+  /* Define special ascii characters */
+  #define NEWLINE         0x0A
+  #define TAB             0x09
 
-/* Define special ascii characters */
-#define NEWLINE         0x0A
-#define TAB             0x09
+  /* We will use these define macros so we can write code once compatible with 12 or 14 bit encoders */
+  #define RES12           12
+  #define RES14           14
 
-/* We will use these define macros so we can write code once compatible with 12 or 14 bit encoders */
-#define RES12           12
-#define RES14           14
-
-/* SPI pins */
-#define ENC_0            2
-#define ENC_1            3
-#define SPI_MOSI        11
-#define SPI_MISO        12
-#define SPI_SCLK        13
-
+  /* SPI pins */
+  #define ENC_0            2
+  #define ENC_1            3
+  #define SPI_MOSI        11
+  #define SPI_MISO        12
+  #define SPI_SCLK        13
+//ui pin defs
+  #define estop       8
+  #define heatled     46
+  #define trackled    48
+  #define warnpiezo   47
+  #define extcommled  49
+  #define contconnect 50
+//motion control pin defs
+  #define ascHbridge1  2
+  #define ascHbridge2  3
+  #define decHbridge1  4
+  #define decHbridge2  5
+  #define focusHbrige1 6
+  #define focusHbrige2 7
+  #define asclim1      17
+  #define asclim2      18
+  #define declim1      19
+//nano communication defs
+  #define toNano   0
+  #define fromNano 1
 void setup() 
 {
   //encoder setup
+
     //Set the modes for the SPI IO
     pinMode(SPI_SCLK, OUTPUT);
     pinMode(SPI_MOSI, OUTPUT);
@@ -47,10 +69,29 @@ void setup()
     SPI.setClockDivider(SPI_CLOCK_DIV32);    // 500 kHz
     //start SPI bus
     SPI.begin();
+  //ui pins
+    pinMode(heatled, OUTPUT);
+    pinMode(trackled, OUTPUT);
+    pinMode(warnpiezo, OUTPUT);
+    pinMode(extcommled, OUTPUT);
+    pinMode(contconnect, OUTPUT);
+  //motion control pins
+    pinMode(ascHbridge1, OUTPUT);
+    pinMode(ascHbridge2, OUTPUT);
+    pinMode(decHbridge1, OUTPUT);
+    pinMode(decHbridge2, OUTPUT);
+    pinMode(focusHbrige1, OUTPUT);
+    pinMode(focusHbrige2, OUTPUT);
+    pinMode(asclim1, INPUT);
+    pinMode(asclim2, INPUT);
+    pinMode(declim1, INPUT);
+  //nano communication pins & cfg
+    
 }
 
 void loop() {
   //run logic
+
   //serial to nano {telescope_controller}
   //encoder stuff
     //create a 16 bit variable to hold the encoders position
