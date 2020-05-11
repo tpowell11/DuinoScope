@@ -97,12 +97,12 @@ pins on the nano
     switches / buttons
         d10: fxn switch 
             3 positon switch to chose between asc, dec and focus motors
-        d11: res switch
-            3 positon switch to chose between 3 motor speeds
-        d12: cancel button
-            stops track & reinits to recive new tracking data [KEY = CAN]
-        d13: pause button
-            halts motors, keeps all data in tact  [KEY = PAU]
+        d11: fxn switch
+            ibid
+        d12: res switch
+            3 positon switch to choose between 3 motor speeds
+        d13: res switch
+            ibid
         d14:
         d15:
         d16:
