@@ -23,6 +23,7 @@
   
 LiquidCrystal lcd(lcd1, lcd2, lcd3, lcd4, lcd5, lcd6);
 void setup() {
+  serialToMega.begin(9600);
   // put your setup code here, to run once:
 }
 

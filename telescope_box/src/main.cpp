@@ -2,7 +2,6 @@
 #include<SoftwareSerial.h>
 #include<Wire.h>
 #include <SPI.h>/* Include the SPI library for the arduino boards */
-//#include <I2Cdriver.h> for nano serial comm
 //encoder pin defs
   /* Serial rates for UART */
   #define BAUDRATE        115200
@@ -47,15 +46,15 @@
 //nano communication defs
   #define toNano   0
   #define fromNano 1
-  SoftwareSerial serialPendant = SoftwareSerial(fromNano, toNano); 
-
-
-
+  SoftwareSerial serialPendant(fromNano, toNano);
+  #define pendantBaud 9600
+  
 //gps pins
   #define gpsRx 20
   #define gpsTx 21
   #define onePps 22
-  SoftwareSerial serialGPS = SoftwareSerial(gpsRx, gpsTx);
+  #define gpsBaud 4800
+  SoftwareSerial serialGPS(gpsRx, gpsTx);
   
 //variables
   bool Estop = false;
@@ -66,6 +65,7 @@
   float currentAsc = 0;
   float currentDec = 0;
 void setup() {
+  Serial.begin(9600);
   //encoder setup
 
     //Set the modes for the SPI IO
@@ -107,15 +107,16 @@ void setup() {
   //gps pins & setup
     pinMode(gpsRx, INPUT);
     pinMode(gpsTx, OUTPUT);
-     serialGPS.begin(4800);
+     serialGPS.begin(gpsBaud);
      digitalWrite(gpsTx,HIGH);
       // Cut first gibberish
     while(serialGPS.available())
       if (serialGPS.read() == '\r')
         break;
   //nano communication pins & cfg
-
+  serialPendant.begin(pendantBaud);
 }
+
 
 void loop() {
   //run logic

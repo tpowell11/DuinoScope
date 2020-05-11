@@ -1,3 +1,5 @@
+Not all pins on the Mega and Mega 2560 support change interrupts, so only 
+the following digital pins can be used for RX: 10, 11, 12, 13, 14, 15, 50, 51, 52, 53, A8 (62), A9 (63), A10
 Pins on the mega & uses
         d0: tx to nano rx
             will send lcd & led data to the nano 
@@ -38,7 +40,8 @@ Pins on the mega & uses
             pins for EM-406A gps module
         d21: gps 2
             ibid
-        d22:
+        d22: gps 3
+            1 pulse per second for system sync
         d23:
         d24:
         d25:
