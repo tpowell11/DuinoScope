@@ -1,4 +1,5 @@
 #include<Arduino.h>
+#include<SoftwareSerial.h>
 #include<Wire.h>
 #include <SPI.h>/* Include the SPI library for the arduino boards */
 //#include <I2Cdriver.h> for nano serial comm
@@ -49,9 +50,11 @@
 
 
 
-//misc. pins
+//gps pins
   #define gpsRx 20
   #define gpsTx 21
+  SoftwareSerial serialGPS = SoftwareSerial(gpsRx, gpsTx);
+  
 //variables
   bool Estop = false;
   bool ascLim = false;
@@ -99,6 +102,15 @@ void setup() {
     pinMode(asclim1, INPUT);
     pinMode(asclim2, INPUT);
     pinMode(declim1, INPUT);
+  //gps pins & setup
+    pinMode(gpsRx, INPUT);
+    pinMode(gpsTx, OUTPUT);
+     serialGPS.begin(4800);
+     digitalWrite(gpsTx,HIGH);
+      // Cut first gibberish
+    while(serialGPS.available())
+      if (serialGPS.read() == '\r')
+        break;
   //nano communication pins & cfg
 
 }

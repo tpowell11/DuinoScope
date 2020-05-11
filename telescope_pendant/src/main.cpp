@@ -16,11 +16,21 @@
   #define fxnSw1 11
   #define resSw0 12
   #define resSw1 13
+//vars
+  
 LiquidCrystal lcd(lcd1, lcd2, lcd3, lcd4, lcd5, lcd6);
 void setup() {
   // put your setup code here, to run once:
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  int currFx = 0;
+  int currRes = 0;
+//interface runtime stuff
+  if(digitalRead(fxnSw0) == HIGH){
+    currFx = 1;
+  }
+  if(digitalRead(fxnSw1) == HIGH){
+    currFx = 2;
+  }
 }
