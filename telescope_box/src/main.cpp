@@ -47,12 +47,14 @@
 //nano communication defs
   #define toNano   0
   #define fromNano 1
+  SoftwareSerial serialPendant = SoftwareSerial(fromNano, toNano); 
 
 
 
 //gps pins
   #define gpsRx 20
   #define gpsTx 21
+  #define onePps 22
   SoftwareSerial serialGPS = SoftwareSerial(gpsRx, gpsTx);
   
 //variables
