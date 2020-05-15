@@ -1,0 +1,11 @@
+This file describes the subset of the LX-200 protocol used by this project. This implementation will be fairly minimal, as most of the interfacing is handled on the ardunio itself.
+All elements below are copied from the datasheet at https://www.meade.com/support/LX200CommandSet.pdf.
+Any commands that are depenent on precision will be used in high precision mode. 
+:SdsDD*MM#
+    Set target object declination to sDD*MM or sDD*MM:SS depending on the current precision setting
+    Returns:
+    1 - Dec Accepted
+    0 – Dec invalid 
+:GD# Get Telescope Declination.
+    Returns: sDD*MM# or sDD*MM’SS#
+    Depending upon the current precision setting for the telescope. 

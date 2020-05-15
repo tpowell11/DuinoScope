@@ -21,7 +21,7 @@ Pins on the mega & uses
             MOSI{enc. pin 3}
         d11: dec enc 1
             MISO{enc. pin 5}
-        d12: dec enc 1
+        d12: dec enc 1 
             CHIP SELECT{enc. pin 2}
         d13: asc enc 1
             SCLC{enc. pin 2}
