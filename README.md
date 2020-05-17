@@ -1,4 +1,5 @@
 # DuinoScope
+IMPORTANT NOTE: This is still very much in development, and there is no stable codebase, but that will come in time.
 ## Goals and motivation
 Duino scope (name subject to change) is an attempt to revive a recovered CGE mount with good mechanical parts and no electronics when I found it. 
 The propriatery microcontroller & its associates were completley broke and Celestron wanted ~200$ to replace the parts, and the modern software dosen't support it. 
