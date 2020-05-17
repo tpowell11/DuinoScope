@@ -57,13 +57,7 @@
   SoftwareSerial serialGPS(gpsRx, gpsTx);
   
 //variables
-  bool Estop = false;
-  bool ascLim = false;
-  bool ascLim2 = false; 
-  bool decLim = false;
-  bool error = false;
-  float currentAsc = 0;
-  float currentDec = 0;
+  
 void setup() {
   Serial.begin(9600);
   //encoder setup
@@ -116,8 +110,14 @@ void setup() {
   //micro communication pins & cfg
   serialPendant.begin(pendantBaud);
 }
-
-
+//vars for loop
+  bool Estop = false;
+  bool ascLim = false;
+  bool ascLim2 = false; 
+  bool decLim = false;
+  bool error = false;
+  float currentAsc = 0;
+  float currentDec = 0;
 void loop() {
   //run logic
     if (digitalRead(estop) == HIGH){
