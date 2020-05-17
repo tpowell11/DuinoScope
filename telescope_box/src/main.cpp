@@ -20,19 +20,19 @@
   #define RES14           14
 
   /* SPI pins */
-  #define ENC_0            2
-  #define ENC_1            3
-  #define SPI_MOSI        11
-  #define SPI_MISO        12
-  #define SPI_SCLK        13
+  #define ENC_0            2 //was 2
+  #define ENC_1            3 //was 3
+  #define SPI_MOSI        11 //was 11
+  #define SPI_MISO        12 //was 12
+  #define SPI_SCLK        13 //was 13 
 //ui pin defs
-  #define estop       8
+  #define estop       44
   #define heatled     46
   #define trackled    48
   #define warnpiezo   47
-  #define extcommled  49
-  #define contconnect 50
-  #define estopLed    51
+  //#define extcommled  49 temp. depreciated
+  //#define contconnect 45 temp. depreciated
+  #define estopLed    45
 //motion control pin defs
   #define ascHbridge1  2
   #define ascHbridge2  3
@@ -43,11 +43,11 @@
   #define asclim1      17
   #define asclim2      18
   #define declim1      19
-//nano communication defs
-  #define toNano   0
-  #define fromNano 1
-  SoftwareSerial serialPendant(fromNano, toNano);
+//micro communication defs
+  #define toMicro   18
+  #define fromMicro 19
   #define pendantBaud 9600
+  SoftwareSerial serialPendant(fromMicro, toMicro);
   
 //gps pins
   #define gpsRx 20
@@ -91,8 +91,8 @@ void setup() {
     pinMode(heatled, OUTPUT);
     pinMode(trackled, OUTPUT);
     pinMode(warnpiezo, OUTPUT);
-    pinMode(extcommled, OUTPUT);
-    pinMode(contconnect, OUTPUT);
+    //pinMode(extcommled, OUTPUT); temp. depreciated
+    //pinMode(contconnect, OUTPUT); temp. depreciated
     pinMode(estopLed, OUTPUT);
   //motion control pins
     pinMode(ascHbridge1, OUTPUT);
@@ -113,7 +113,7 @@ void setup() {
     while(serialGPS.available())
       if (serialGPS.read() == '\r')
         break;
-  //nano communication pins & cfg
+  //micro communication pins & cfg
   serialPendant.begin(pendantBaud);
 }
 
@@ -129,7 +129,7 @@ void loop() {
       digitalWrite(warnpiezo, HIGH);
     }
     
-  //serial to nano {telescope_controller}
+  //serial to micro {telescope_controller}
   //encoder stuff
     //create a 16 bit variable to hold the encoders position
     uint16_t encoderPosition;
