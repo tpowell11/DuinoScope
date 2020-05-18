@@ -24,8 +24,12 @@
   //encoder coding lines
   #define dial0  12
   #define dial1  13
+ 
 
 void setup() {
+  // set pins as input with internal pull-up resistors enabled
+
+  //other inits
   mega.begin(baud);
   lcd.begin(20, 4);
   lcd.print("INIT");
@@ -36,6 +40,8 @@ void loop() {
 int fxSw_S = 0;
 int resSw_S = 0;
 //char mode[12] = "";
+
+
   //Handling the function switch
   if(digitalRead(fxSw) == HIGH){
     fxSw_S = 0;
@@ -52,8 +58,21 @@ int resSw_S = 0;
     resSw_S = 0;
   }else if (digitalRead(resSw) == HIGH) {
     resSw_S = 1;
-  }else if (digitalRead(resSw) == HIGH && digitalRead(resSw1) == HIGH){
-    resSw_S = 2; 
   }
   //LCD Output section
+  if (fxSw_S == 0 && resSw_S == 0){
+    //dec coarse
+  } else if (fxSw_S == 1 && resSw_S == 0) {
+    //asc coarse
+  } else if (fxSw_S == 2 && resSw_S == 0) {
+    //foc coarse
+  } else if (fxSw_S == 0 && resSw_S == 1){
+    //dec fine
+  } else if (fxSw_S == 1 && resSw_S == 1){
+    //asc fine
+  } else if (fxSw_S == 2 && resSw_S == 1){
+    //foc fine
+  }
+
 }
+
