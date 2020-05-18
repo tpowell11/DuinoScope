@@ -110,7 +110,9 @@ void setup() {
   //micro communication pins & cfg
   serialPendant.begin(pendantBaud);
 }
-//vars for loop
+
+void loop() {
+  //vars for loop
   bool Estop = false;
   bool ascLim = false;
   bool ascLim2 = false; 
@@ -118,7 +120,6 @@ void setup() {
   bool error = false;
   float currentAsc = 0;
   float currentDec = 0;
-void loop() {
   //run logic
     if (digitalRead(estop) == HIGH){
         Estop = true;
@@ -127,6 +128,15 @@ void loop() {
     if (error = true){
       //stop motors, keep track data, piezo
       digitalWrite(warnpiezo, HIGH);
+    }
+    if (digitalRead(declim1) == HIGH){
+      decLim = true;
+    }
+    if (digitalRead(asclim1) == HIGH){
+      ascLim = true;
+    }
+    if (digitalRead(asclim2)== HIGH){
+      ascLim2 = true;
     }
     
   //serial to micro {telescope_controller}
