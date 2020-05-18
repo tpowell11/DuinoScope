@@ -55,4 +55,5 @@ int resSw_S = 0;
   }else if (digitalRead(resSw) == HIGH && digitalRead(resSw1) == HIGH){
     resSw_S = 2; 
   }
+  //LCD Output section
 }
