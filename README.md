@@ -11,6 +11,6 @@ or without power. Technically, this could be done with some EEPROM trickery, but
 #### Resolution
 I have chosen to use the 12 bit resolution to ease some load on the Mega's cpu. 
 ### Boards
-The main box that deals with ui (read leds), motion control, and other tasks is an Ardunio Mega 2560. The pendant controller is based on a $$NAME , which handles user input, an lcd display, and some more switches and leds.
+The main box that deals with ui (read leds), motion control, and other tasks is an Ardunio Mega 2560. The pendant controller is based on a $$NAME , which handles user input, an lcd display, and some more switches and leds. Stellarium is the software that sends the commands, and it is run on a RasPi 4. A raspi or similar is needed because of its gpio pins, because bidirecional serial communication is not possible over the Arduino's usb as far as I can tell. 
 #### Pins
 All information on pins can be found in the [Pins.ods](Pins.ods). Pins contains wiring information, which can also be found in a visual form in the [Wiring.pdf](Wiring.pdf)(NYI). 
