@@ -55,8 +55,11 @@
   #define onePps 22
   #define gpsBaud 4800
   SoftwareSerial serialGPS(gpsRx, gpsTx);
-  
-//variables
+//raspi serial pins
+  #define fromPi 14
+  #define toPi   13
+  #define piBaud 4800
+  SoftwareSerial rasPi(fromPi, toPi);
   
 void setup() {
   Serial.begin(9600);
@@ -109,6 +112,8 @@ void setup() {
         break;
   //micro communication pins & cfg
   serialPendant.begin(pendantBaud);
+  //raspi communication pins
+  rasPi.begin(piBaud);
 }
   void setCSLine (uint8_t encoder, uint8_t csLine)
     {
@@ -221,7 +226,7 @@ void loop() {
       ascLim2 = true;
     }
     
-  //serial to micro {telescope_controller}
+  //serial to micro {telescope_pendant}
 
   //encoder stuff
     //create a 16 bit variable to hold the encoders position
