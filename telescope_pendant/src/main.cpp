@@ -22,8 +22,8 @@
   #define resSw  8
   #define resSw1 9
   //encoder coding lines
-  #define dial0  12
-  #define dial1  13
+  #define joy0  12
+  #define joy1  13
  
 
 void setup() {
@@ -35,13 +35,27 @@ void setup() {
   lcd.print("INIT");
 }
 
+bool move(float data){
+  float deadzone = 1;
+  if(data >= deadzone){
+    return true;
+  } else {
+    return false; 
+  }
+}
 
 void loop() {
 int fxSw_S = 0;
 int resSw_S = 0;
+float joy0_v = 0;
+float joy1_v = 0;
 //char mode[12] = "";
 
+  //joystick
+  joy0_v = analogRead(joy0);
+  joy1_v = analogRead(joy1);
 
+  
   //Handling the function switch
   if(digitalRead(fxSw) == HIGH){
     fxSw_S = 0;
