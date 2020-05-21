@@ -34,7 +34,12 @@ void setup() {
   lcd.begin(20, 4);
   lcd.print("INIT");
 }
-
+float scl(float data) {
+  float scale = 10;
+  float scl_data = 0;
+  scl_data = data / scale;
+  return scl_data;
+}
 bool move(float data){
   float deadzone = 1;
   if(data >= deadzone){
