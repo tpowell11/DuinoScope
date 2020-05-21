@@ -1,3 +1,6 @@
 
 Info/.~lock.Pins.ods#
 *.vscode
+*.~lock
+*.pio
+*.dia~
