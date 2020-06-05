@@ -115,6 +115,7 @@ void setup() {
   //raspi communication pins
   rasPi.begin(piBaud);
 }
+//function time
   void setCSLine (uint8_t encoder, uint8_t csLine)
     {
       digitalWrite(encoder, csLine);
@@ -196,34 +197,37 @@ void setup() {
       spiWriteRead(AMT22_ZERO, encoder, true);
       delay(250); //250 second delay to allow the encoder to reset
     }
-
+  //functiuon to stop all motors
+  void stop(){
+    digitalWrite(ascHbridge1, LOW);
+    digitalWrite(ascHbridge2, LOW);
+    digitalWrite(decHbridge1, LOW);
+    digitalWrite(decHbridge2, LOW);
+  }
 
 void loop() {
   //vars for loop
-  bool Estop = false;
-  bool ascLim = false;
-  bool ascLim2 = false; 
-  bool decLim = false;
-  bool error = false;
+  int ascLim_r = digitalRead(asclim1);
+  int ascLim_r1 = digitalRead(asclim2);
+  int decLim_r = digitalRead(declim1);
+  //bool error = false;
   float currentAsc = 0;
   float currentDec = 0;
   //run logic
     if (digitalRead(estop) == HIGH){
-        Estop = true;
         digitalWrite(estopLed, HIGH);
     }
-    if (error = true){
-      //stop motors, keep track data, piezo
-      digitalWrite(warnpiezo, HIGH);
+    if (ascLim_r == 1){
+      Serial.write("ascL1");
+      stop();
     }
-    if (digitalRead(declim1) == HIGH){
-      decLim = true;
+    if (ascLim_r1 == 1){
+      Serial.write("ascL2");
+      stop();
     }
-    if (digitalRead(asclim1) == HIGH){
-      ascLim = true;
-    }
-    if (digitalRead(asclim2)== HIGH){
-      ascLim2 = true;
+    if (decLim_r = 1){
+      Serial.write("decL1");
+      stop();
     }
     
   //serial to micro {telescope_pendant}
