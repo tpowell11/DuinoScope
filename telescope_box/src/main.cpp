@@ -231,7 +231,7 @@ void loop() {
     }
     
   //serial to micro {telescope_pendant}
-
+  
   //encoder stuff
     //create a 16 bit variable to hold the encoders position
     uint16_t encoderPosition;

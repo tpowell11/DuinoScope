@@ -33,14 +33,16 @@ void setup() {
   mega.begin(baud);
   lcd.begin(20, 4);
   lcd.print("INIT");
+  lcd.clear();
 }
-float scl(float data) {
+//function time
+float scl(float data) { //for scaling the joystick inputs
   float scale = 10;
   float scl_data = 0;
   scl_data = data / scale;
   return scl_data;
 }
-bool move(float data){
+bool move(float data){ // used to create a deadzone if you're into that
   float deadzone = 1;
   if(data >= deadzone){
     return true;
@@ -48,7 +50,12 @@ bool move(float data){
     return false; 
   }
 }
-
+void updateLcd(String title, String val){
+  int len = title.length();
+  lcd.setCursor(0,0);
+  lcd.print(title);
+  lcd.setCursor((len + 1), 0);
+}
 void loop() {
 int fxSw_S = 0;
 int resSw_S = 0;
@@ -81,16 +88,22 @@ float joy1_v = 0;
   //LCD Output section
   if (fxSw_S == 0 && resSw_S == 0){
     //dec coarse
+    updateLcd("Dec Coarse", "pl");
   } else if (fxSw_S == 1 && resSw_S == 0) {
     //asc coarse
+    updateLcd("Asc Coarse", "pl");
   } else if (fxSw_S == 2 && resSw_S == 0) {
     //foc coarse
+    updateLcd("Focus Coarse", " "); //focus is qualitiative for all purposes of this program
   } else if (fxSw_S == 0 && resSw_S == 1){
     //dec fine
+    updateLcd("Dec Fine","pl");
   } else if (fxSw_S == 1 && resSw_S == 1){
     //asc fine
+    updateLcd("Asc Fine", "pl");
   } else if (fxSw_S == 2 && resSw_S == 1){
     //foc fine
+    updateLcd("Focus Fine", " "); // ibid
   }
 
 }
