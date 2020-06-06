@@ -114,14 +114,20 @@ void setup() {
     while(serialGPS.available())
       if (serialGPS.read() == '\r')
         break;
-  //micro communication pins, cfg, init
-  serialPendant.begin(pendantBaud);
-  serialPendant.write("0000");
-  delay(100);
-  char test_pend [];
-  test_pend = serialPendant.read();
   //raspi communication pins
   rasPi.begin(piBaud);
+  //micro communication pins, cfg, init
+  serialPendant.begin(pendantBaud);
+  int pendIncTest = 0; //stores data incoming from pendant test procedure
+  pendIncTest = serialPendant.read();
+  if (pendIncTest == 1){
+    // exit and continue setup
+    Serial.print("Serial to pendant good");
+  } else {
+    // print error to pi via USB terminal
+    Serial.print("ERR 1: Pendant not responding via serial");
+  }
+
 }
 //function time
   void setCSLine (uint8_t encoder, uint8_t csLine)
