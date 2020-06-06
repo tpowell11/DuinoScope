@@ -114,8 +114,12 @@ void setup() {
     while(serialGPS.available())
       if (serialGPS.read() == '\r')
         break;
-  //micro communication pins & cfg
+  //micro communication pins, cfg, init
   serialPendant.begin(pendantBaud);
+  serialPendant.write("0000");
+  delay(100);
+  char test_pend [];
+  test_pend = serialPendant.read();
   //raspi communication pins
   rasPi.begin(piBaud);
 }
@@ -233,9 +237,8 @@ void loop() {
       Serial.write("decL1");
       stop();
     }
-    
   //serial to micro {telescope_pendant}
-
+  
   //encoder stuff
     //create a 16 bit variable to hold the encoders position
     uint16_t encoderPosition;
