@@ -2,6 +2,7 @@
 #include<SoftwareSerial.h>
 #include<Wire.h>
 #include <SPI.h>/* Include the SPI library for the arduino boards */
+#include <Stepper.h>
 //encoder pin defs
   /* Serial rates for UART */
   #define BAUDRATE        115200
@@ -60,7 +61,10 @@
   #define toPi   13
   #define piBaud 4800
   SoftwareSerial rasPi(fromPi, toPi);
-  
+// focus stepper cfg IMPORTANT: designed for BIPOLAR stepper. 
+  #define SPR 200 //change to match the stepsper revolution of your stepper
+  #define sPos1 
+  Stepper myStepper(SPR, 8, 9, 10, 11);
 void setup() {
   Serial.begin(9600);
   //encoder setup
@@ -231,7 +235,7 @@ void loop() {
     }
     
   //serial to micro {telescope_pendant}
-  
+
   //encoder stuff
     //create a 16 bit variable to hold the encoders position
     uint16_t encoderPosition;
