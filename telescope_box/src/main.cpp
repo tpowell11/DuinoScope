@@ -4,8 +4,7 @@
 #include <SPI.h>/* Include the SPI library for the arduino boards */
 #include <Stepper.h>
 //encoder pin defs
-  /* Serial rates for UART */
-  #define BAUDRATE        115200
+  
 
   /* SPI commands */
   #define AMT22_NOP       0x00
@@ -56,11 +55,6 @@
   #define onePps 22
   #define gpsBaud 4800
   SoftwareSerial serialGPS(gpsRx, gpsTx);
-//raspi serial pins
-  #define fromPi 14
-  #define toPi   13
-  #define piBaud 4800
-  SoftwareSerial rasPi(fromPi, toPi);
 // focus stepper cfg IMPORTANT: designed for BIPOLAR stepper. 
   #define SPR 200 //change to match the stepsper revolution of your stepper
   #define sPos1 
@@ -68,18 +62,15 @@
 void setup() {
   Serial.begin(9600); //begins main serial to computer / raspi
   //encoder setup
-
+  Serial.print("DS Version b-1.0\nStarting\n"); 
     //Set the modes for the SPI IO
     pinMode(SPI_SCLK, OUTPUT);
     pinMode(SPI_MOSI, OUTPUT);
     pinMode(SPI_MISO, INPUT);
     pinMode(ENC_0, OUTPUT);
     pinMode(ENC_1, OUTPUT);
-    
-    //Initialize the UART serial connection for debugging
-    Serial.begin(BAUDRATE);
-
-    //Get the CS line high which is the default inactive state
+        
+   //Get the CS line high which is the default inactive state
     digitalWrite(ENC_0, HIGH);
     digitalWrite(ENC_1, HIGH);
 
@@ -109,31 +100,28 @@ void setup() {
     pinMode(gpsRx, INPUT);
     pinMode(gpsTx, OUTPUT);
     serialGPS.begin(gpsBaud);
-    Serial.print("Init GPS"); //sends message to main console
+    Serial.print("Init GPS\n"); //sends message to main console
     digitalWrite(gpsTx,HIGH);
       // Cut first gibberish
     while(serialGPS.available())
       if (serialGPS.read() == '\r')
         break;
-  //raspi communication pins
-  rasPi.begin(piBaud);
   //micro communication pins, cfg, init
   serialPendant.begin(pendantBaud);
-  Serial.print("Init Pendant"); //sends message to main console
+  Serial.print("Init Pendant\n"); //sends message to main console
   int pendIncTest = 0; //stores data incoming from pendant test procedure
   pendIncTest = serialPendant.read();
   if (pendIncTest == 1){
     // exit and continue setup
-    Serial.print("Serial to pendant good");
+    Serial.print("Serial to pendant good\n");
   } else {
     // print error to pi via USB terminal
-    Serial.print("ERR 1: Pendant not responding via serial");
+    Serial.print("ERR 1: Pendant not responding via serial\n");
   }
 
 }
 //function time
-  void setCSLine (uint8_t encoder, uint8_t csLine)
-    {
+  void setCSLine (uint8_t encoder, uint8_t csLine){
       digitalWrite(encoder, csLine);
     }
   uint8_t spiWriteRead(uint8_t sendByte, uint8_t encoder, uint8_t releaseLine){
@@ -234,15 +222,15 @@ void loop() {
         digitalWrite(estopLed, HIGH);
     }
     if (ascLim_r == 1){
-      Serial.write("ascL1");
+      Serial.write("ascL1\n");
       stop();
     }
     if (ascLim_r1 == 1){
-      Serial.write("ascL2");
+      Serial.write("ascL2\n");
       stop();
     }
     if (decLim_r = 1){
-      Serial.write("decL1");
+      Serial.write("decL1\n");
       stop();
     }
   //serial to micro {telescope_pendant}
@@ -258,9 +246,7 @@ void loop() {
     //setZeroSPI(ENC_0);
     //setZeroSPI(ENC_1);
 
-    //once we enter this loop we will run forever
-    while(1)
-    {
+   
       //set attemps counter at 0 so we can try again if we get bad position    
       attempts = 0;
 
@@ -270,19 +256,16 @@ void loop() {
 
       //if the position returned was 0xFFFF we know that there was an error calculating the checksum
       //make 3 attempts for position. we will pre-increment attempts because we'll use the number later and want an accurate count
-      while (encoderPosition == 0xFFFF && ++attempts < 3)
-      {
+      while (encoderPosition == 0xFFFF && ++attempts < 3) {
         encoderPosition = getPositionSPI(ENC_0, RES14); //try again
       }
 
-      if (encoderPosition == 0xFFFF) //position is bad, let the user know how many times we tried
-      {
+      if (encoderPosition == 0xFFFF) { //position is bad, let the user know how many times we tried
         Serial.print("Encoder 0 error. Attempts: ");
         Serial.print(attempts, DEC); //print out the number in decimal format. attempts - 1 is used since we post incremented the loop
         Serial.write(NEWLINE);
       }
-      else //position was good, print to serial stream
-      {
+      else { //position was good, print to serial stream
         
         Serial.print("Encoder 0: ");
         Serial.print(encoderPosition, DEC); //print the position in decimal format
@@ -304,14 +287,12 @@ void loop() {
         encoderPosition = getPositionSPI(ENC_1, RES14); //try again
       }
 
-      if (encoderPosition == 0xFFFF) //position is bad, let the user know how many times we tried
-      {
+      if (encoderPosition == 0xFFFF){ //position is bad, let the user know how many times we tried
         Serial.print("Encoder 1 error. Attempts: ");
         Serial.print(attempts, DEC); //print out the number in decimal format. attempts - 1 is used since we post incremented the loop
         Serial.write(NEWLINE);
       }
-      else //position was good, print to serial stream
-      {
+      else{ //position was good, print to serial stream
         
         Serial.print("Encoder 1: ");
         Serial.print(encoderPosition, DEC); //print the position in decimal format
@@ -321,7 +302,7 @@ void loop() {
       //For the purpose of this demo we don't need the position returned that quickly so let's wait a half second between reads
       //delay() is in milliseconds
       delay(500);
-    }
+  // end of the enoder 
    } //end loop
 
 void resetAMT22(uint8_t encoder){
