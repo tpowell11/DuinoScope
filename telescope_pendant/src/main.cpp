@@ -31,6 +31,7 @@ void setup() {
 
   //other inits
   mega.begin(baud); //starts b-d serial with mega
+  mega.write("0000");
   lcd.begin(20, 4);
   lcd.print("INIT");
   lcd.clear();

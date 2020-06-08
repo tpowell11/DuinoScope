@@ -119,11 +119,12 @@ void setup() {
     Serial.print("ERR 1: Pendant not responding via serial\n");
   }
 
-}
+} // end setup
 //function time
   void setCSLine (uint8_t encoder, uint8_t csLine){
       digitalWrite(encoder, csLine);
     }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   uint8_t spiWriteRead(uint8_t sendByte, uint8_t encoder, uint8_t releaseLine){
       //holder for the received over SPI
       uint8_t data;
@@ -143,6 +144,7 @@ void setup() {
       
       return data;
     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
     * This function gets the absolute position from the AMT22 encoder using the SPI bus. The AMT22 position includes 2 checkbits to use
     * for position verification. Both 12-bit and 14-bit encoders transfer position via two bytes, giving 16-bits regardless of resolution.
@@ -187,10 +189,8 @@ void setup() {
 
       return currentPosition;
     }
-    
-    
-    void setZeroSPI(uint8_t encoder)
-    {
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    void setZeroSPI(uint8_t encoder){
       spiWriteRead(AMT22_NOP, encoder, false);
 
       //this is the time required between bytes as specified in the datasheet.
@@ -201,6 +201,7 @@ void setup() {
       spiWriteRead(AMT22_ZERO, encoder, true);
       delay(250); //250 second delay to allow the encoder to reset
     }
+////////////////////////////////////////////////////////////////////////////////////////////////////////
   //functiuon to stop all motors
   void stop(){
     digitalWrite(ascHbridge1, LOW);
@@ -208,7 +209,14 @@ void setup() {
     digitalWrite(decHbridge1, LOW);
     digitalWrite(decHbridge2, LOW);
   }
-
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  void getAsc() {
+    //converts encoder output to an ascention value
+  }
+  void getDec() {
+    //converts encoder output to a declination value
+  }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void loop() {
   //vars for loop
   int ascLim_r = digitalRead(asclim1);
@@ -233,6 +241,11 @@ void loop() {
       Serial.write("decL1\n");
       stop();
     }
+  /*
+  int test;
+  test = Serial.read();
+  Serial.write(test, DEC);
+  */
   //serial to micro {telescope_pendant}
   
   //encoder stuff
