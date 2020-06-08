@@ -18,6 +18,7 @@
   /* We will use these define macros so we can write code once compatible with 12 or 14 bit encoders */
   #define RES12           12
   #define RES14           14
+  #define RESOL           12 //universal resolution for encoders
 
   /* SPI pins */
   #define ENC_0            2 //was 2
@@ -61,8 +62,11 @@
   Stepper myStepper(SPR, 8, 9, 10, 11);
 void setup() {
   Serial.begin(9600); //begins main serial to computer / raspi
+  //display system info
+  Serial.print("DS Version b-1.0\nStarting...\n"); 
+  Serial.print("Encoders running in 12 bit resolution\n");
+  
   //encoder setup
-  Serial.print("DS Version b-1.0\nStarting\n"); 
     //Set the modes for the SPI IO
     pinMode(SPI_SCLK, OUTPUT);
     pinMode(SPI_MOSI, OUTPUT);
@@ -118,7 +122,7 @@ void setup() {
     // print error to pi via USB terminal
     Serial.print("ERR 1: Pendant not responding via serial\n");
   }
-
+Serial.print("Setup Completed");
 } // end setup
 //function time
   void setCSLine (uint8_t encoder, uint8_t csLine){
@@ -222,6 +226,7 @@ void loop() {
   int ascLim_r = digitalRead(asclim1);
   int ascLim_r1 = digitalRead(asclim2);
   int decLim_r = digitalRead(declim1);
+  uint16_t ascEncoderPosition;
   //bool error = false;
   float currentAsc = 0;
   float currentDec = 0;
@@ -265,12 +270,12 @@ void loop() {
 
       //this function gets the encoder position and returns it as a uint16_t
       //send the function either res12 or res14 for your encoders resolution
-      encoderPosition = getPositionSPI(ENC_0, RES14); 
-
+      encoderPosition = getPositionSPI(ENC_0, RES12); 
+      ascEncoderPosition = getPositionSPI(ENC_0, RES12);
       //if the position returned was 0xFFFF we know that there was an error calculating the checksum
       //make 3 attempts for position. we will pre-increment attempts because we'll use the number later and want an accurate count
       while (encoderPosition == 0xFFFF && ++attempts < 3) {
-        encoderPosition = getPositionSPI(ENC_0, RES14); //try again
+        encoderPosition = getPositionSPI(ENC_0, RES12); //try again
       }
 
       if (encoderPosition == 0xFFFF) { //position is bad, let the user know how many times we tried
