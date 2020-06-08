@@ -66,7 +66,7 @@
   #define sPos1 
   Stepper myStepper(SPR, 8, 9, 10, 11);
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600); //begins main serial to computer / raspi
   //encoder setup
 
     //Set the modes for the SPI IO
@@ -108,8 +108,9 @@ void setup() {
   //gps pins & setup
     pinMode(gpsRx, INPUT);
     pinMode(gpsTx, OUTPUT);
-     serialGPS.begin(gpsBaud);
-     digitalWrite(gpsTx,HIGH);
+    serialGPS.begin(gpsBaud);
+    Serial.print("Init GPS"); //sends message to main console
+    digitalWrite(gpsTx,HIGH);
       // Cut first gibberish
     while(serialGPS.available())
       if (serialGPS.read() == '\r')
@@ -118,6 +119,7 @@ void setup() {
   rasPi.begin(piBaud);
   //micro communication pins, cfg, init
   serialPendant.begin(pendantBaud);
+  Serial.print("Init Pendant"); //sends message to main console
   int pendIncTest = 0; //stores data incoming from pendant test procedure
   pendIncTest = serialPendant.read();
   if (pendIncTest == 1){
