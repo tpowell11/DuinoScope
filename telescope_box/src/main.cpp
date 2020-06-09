@@ -23,9 +23,9 @@
   /* SPI pins */
   #define ENC_0            2 //was 2
   #define ENC_1            3 //was 3
-  #define SPI_MOSI        11 //was 11
-  #define SPI_MISO        12 //was 12
-  #define SPI_SCLK        13 //was 13 
+  #define SPI_MOSI        51 //changed to work with the mega
+  #define SPI_MISO        50 //ibid
+  #define SPI_SCLK        52 //ibid 
 //ui pin defs
   #define estop       44
   #define heatled     46
