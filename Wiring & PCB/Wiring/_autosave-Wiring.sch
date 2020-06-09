@@ -1,0 +1,501 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A2 23386 16535
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:Arduino-mega U001
+U 1 1 5EDFA16F
+P 10100 7500
+F 0 "U" H 8562 6304 50  0000 R CNN
+F 1 "Arduino-mega" H 8562 6395 50  0000 R CNN
+F 2 "" H 8650 7600 50  0001 C CNN
+F 3 "" H 8650 7600 50  0001 C CNN
+	1    10100 7500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5EE0D187
+P 25350 13600
+F 0 "#PWR" H 25350 13450 50  0001 C CNN
+F 1 "+5V" H 25365 13773 50  0000 C CNN
+F 2 "" H 25350 13600 50  0001 C CNN
+F 3 "" H 25350 13600 50  0001 C CNN
+	1    25350 13600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:AMT-22 U?
+U 1 1 5EE10990
+P 21550 3800
+F 0 "U" H 21168 2835 50  0000 C CNN
+F 1 "AMT-22" H 21168 2926 50  0000 C CNN
+F 2 "" H 20200 4400 50  0001 C CNN
+F 3 "" H 20200 4400 50  0001 C CNN
+	1    21550 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:AMT-22 U?
+U 1 1 5EE14183
+P 21550 1900
+F 0 "U" H 21168 935 50  0000 C CNN
+F 1 "AMT-22" H 21168 1026 50  0000 C CNN
+F 2 "" H 20200 2500 50  0001 C CNN
+F 3 "" H 20200 2500 50  0001 C CNN
+	1    21550 1900
+	1    0    0    -1  
+$EndComp
+Text Notes 10500 6950 0    50   ~ 0
++- 5v supplied via usb\n
+Wire Wire Line
+	12650 3750 12650 6050
+Wire Wire Line
+	12650 3750 20050 3750
+Wire Wire Line
+	20050 3950 12550 3950
+Wire Wire Line
+	12550 3950 12550 6050
+Wire Wire Line
+	20050 3850 14150 3850
+Wire Wire Line
+	14150 3850 14150 8150
+Wire Wire Line
+	14150 8150 13150 8150
+Wire Wire Line
+	20050 3550 14200 3550
+Wire Wire Line
+	14200 8350 13150 8350
+Wire Wire Line
+	12750 6050 12750 3650
+Wire Wire Line
+	12750 3650 20050 3650
+Wire Wire Line
+	20050 4050 8850 4050
+Wire Wire Line
+	8850 4050 8850 7450
+Wire Wire Line
+	8850 7450 9350 7450
+Wire Wire Line
+	9350 7550 8750 7550
+Wire Wire Line
+	8750 7550 8750 2150
+Wire Wire Line
+	8750 2150 20050 2150
+Wire Wire Line
+	14200 3550 14200 1650
+Wire Wire Line
+	14200 1650 20050 1650
+Connection ~ 14200 3550
+Wire Wire Line
+	14150 3850 14150 1950
+Wire Wire Line
+	14150 1950 20050 1950
+Connection ~ 14150 3850
+Wire Wire Line
+	12750 3650 12750 1750
+Wire Wire Line
+	12750 1750 20050 1750
+Connection ~ 12750 3650
+Wire Wire Line
+	12650 3750 12650 1850
+Wire Wire Line
+	12650 1850 20050 1850
+Connection ~ 12650 3750
+Wire Wire Line
+	20050 2050 12550 2050
+Wire Wire Line
+	12550 2050 12550 3950
+Connection ~ 12550 3950
+$Comp
+L Device:LED D?
+U 1 1 5EE3A4E8
+P 17200 9100
+F 0 "D?" H 17193 8845 50  0000 C CNN
+F 1 "LED" H 17193 8936 50  0000 C CNN
+F 2 "" H 17200 9100 50  0001 C CNN
+F 3 "~" H 17200 9100 50  0001 C CNN
+	1    17200 9100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 5EE3B137
+P 17200 9450
+F 0 "D?" H 17193 9195 50  0000 C CNN
+F 1 "LED" H 17193 9286 50  0000 C CNN
+F 2 "" H 17200 9450 50  0001 C CNN
+F 3 "~" H 17200 9450 50  0001 C CNN
+	1    17200 9450
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 5EE3B682
+P 17200 9800
+F 0 "D?" H 17193 9545 50  0000 C CNN
+F 1 "LED" H 17193 9636 50  0000 C CNN
+F 2 "" H 17200 9800 50  0001 C CNN
+F 3 "~" H 17200 9800 50  0001 C CNN
+	1    17200 9800
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 5EE3BBAB
+P 17200 10150
+F 0 "D?" H 17193 9895 50  0000 C CNN
+F 1 "LED" H 17193 9986 50  0000 C CNN
+F 2 "" H 17200 10150 50  0001 C CNN
+F 3 "~" H 17200 10150 50  0001 C CNN
+	1    17200 10150
+	-1   0    0    1   
+$EndComp
+$Comp
+L Switch:SW_DPST_x2 SW2
+U 1 1 5EE3F5AE
+P 15000 7850
+F 0 "SW2" H 15000 8085 50  0000 C CNN
+F 1 "Declination Limit 1" H 15000 7994 50  0000 C CNN
+F 2 "" H 15000 7850 50  0001 C CNN
+F 3 "~" H 15000 7850 50  0001 C CNN
+	1    15000 7850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_DPST_x2 SW1
+U 1 1 5EE40983
+P 15000 7450
+F 0 "SW1" H 15000 7685 50  0000 C CNN
+F 1 "Ascention Limit 2" H 15000 7594 50  0000 C CNN
+F 2 "" H 15000 7450 50  0001 C CNN
+F 3 "~" H 15000 7450 50  0001 C CNN
+	1    15000 7450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_DPST_x2 SW0
+U 1 1 5EE41065
+P 15000 7050
+F 0 "SW0" H 15000 7285 50  0000 C CNN
+F 1 "Ascention Limit 1" H 15000 7194 50  0000 C CNN
+F 2 "" H 15000 7050 50  0001 C CNN
+F 3 "~" H 15000 7050 50  0001 C CNN
+	1    15000 7050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	17050 9100 13550 9100
+Wire Wire Line
+	13550 9100 13550 5900
+Wire Wire Line
+	13550 5900 12150 5900
+Wire Wire Line
+	12150 5900 12150 6050
+$Comp
+L Device:R_US R?
+U 1 1 5EE463E1
+P 17500 9100
+F 0 "R?" V 17295 9100 50  0000 C CNN
+F 1 "R_US" V 17386 9100 50  0000 C CNN
+F 2 "" V 17540 9090 50  0001 C CNN
+F 3 "~" H 17500 9100 50  0001 C CNN
+	1    17500 9100
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5EE46CC8
+P 17500 9450
+F 0 "R?" V 17295 9450 50  0000 C CNN
+F 1 "R_US" V 17386 9450 50  0000 C CNN
+F 2 "" V 17540 9440 50  0001 C CNN
+F 3 "~" H 17500 9450 50  0001 C CNN
+	1    17500 9450
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5EE47BE5
+P 17500 9800
+F 0 "R?" V 17295 9800 50  0000 C CNN
+F 1 "R_US" V 17386 9800 50  0000 C CNN
+F 2 "" V 17540 9790 50  0001 C CNN
+F 3 "~" H 17500 9800 50  0001 C CNN
+	1    17500 9800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5EE48141
+P 17500 10150
+F 0 "R?" V 17295 10150 50  0000 C CNN
+F 1 "R_US" V 17386 10150 50  0000 C CNN
+F 2 "" V 17540 10140 50  0001 C CNN
+F 3 "~" H 17500 10150 50  0001 C CNN
+	1    17500 10150
+	0    1    1    0   
+$EndComp
+Text Label 16700 9100 0    50   ~ 0
+heater_LED
+Wire Wire Line
+	17050 9450 13500 9450
+Wire Wire Line
+	13500 9450 13500 5850
+Wire Wire Line
+	13500 5850 12350 5850
+Wire Wire Line
+	12350 5850 12350 6050
+Text Label 16750 9450 0    50   ~ 0
+track_LED
+Wire Wire Line
+	17050 9800 13450 9800
+Wire Wire Line
+	13450 9800 13450 5800
+Wire Wire Line
+	13450 5800 12050 5800
+Wire Wire Line
+	12050 5800 12050 6050
+Text Label 16700 9800 0    50   ~ 0
+estop_LED
+$Comp
+L Device:Speaker_Crystal LS001
+U 1 1 5EE4C911
+P 17250 8400
+F 0 "LS001" H 17424 8396 50  0000 L CNN
+F 1 "warnPiezo" H 17424 8305 50  0000 L CNN
+F 2 "" H 17215 8350 50  0001 C CNN
+F 3 "~" H 17215 8350 50  0001 C CNN
+	1    17250 8400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	17050 8400 13600 8400
+Wire Wire Line
+	13600 8400 13600 5750
+Wire Wire Line
+	13600 5750 12250 5750
+Wire Wire Line
+	12250 5750 12250 6050
+Wire Wire Line
+	14150 8150 14150 8500
+Wire Wire Line
+	14150 8500 17050 8500
+Connection ~ 14150 8150
+Wire Wire Line
+	17650 9800 17650 9450
+Wire Wire Line
+	17650 9450 17650 9100
+Connection ~ 17650 9450
+Wire Wire Line
+	17650 9100 17650 8700
+Wire Wire Line
+	17650 8700 14150 8700
+Wire Wire Line
+	14150 8700 14150 8500
+Connection ~ 17650 9100
+Connection ~ 14150 8500
+Wire Wire Line
+	14200 3550 14200 8350
+Wire Wire Line
+	9650 6050 9650 5650
+Wire Wire Line
+	9650 5650 14550 5650
+Wire Wire Line
+	14550 5650 14550 7050
+Wire Wire Line
+	14550 7850 14800 7850
+Wire Wire Line
+	14800 7450 14550 7450
+Connection ~ 14550 7450
+Wire Wire Line
+	14550 7450 14550 7850
+Wire Wire Line
+	14800 7050 14550 7050
+Connection ~ 14550 7050
+Wire Wire Line
+	14550 7050 14550 7450
+Wire Wire Line
+	15200 7050 15350 7050
+Wire Wire Line
+	15350 7050 15350 5550
+Wire Wire Line
+	15350 5550 9250 5550
+Wire Wire Line
+	15200 7450 15400 7450
+Wire Wire Line
+	15400 7450 15400 5500
+Wire Wire Line
+	15400 5500 9200 5500
+Wire Wire Line
+	15200 7850 15450 7850
+Wire Wire Line
+	15450 7850 15450 5450
+Wire Wire Line
+	15450 5450 9150 5450
+Text Notes 14550 8000 0    50   ~ 0
+Fix this so multiple switches can be down at once\n
+Text Label 16700 8400 0    50   ~ 0
+47_to_warn
+$Comp
+L Device:Ardunio_Micro U?
+U 1 1 5EE7BEB7
+P 4000 5950
+F 0 "U?" V 4046 5322 50  0000 R CNN
+F 1 "Ardunio_Micro" V 3955 5322 50  0000 R CNN
+F 2 "" H 4000 6450 50  0001 C CNN
+F 3 "" H 4000 6450 50  0001 C CNN
+	1    4000 5950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:20x4_Adafriuit_lcd U?
+U 1 1 5EE818D5
+P 2750 3000
+F 0 "U?" H 822 3062 50  0000 R CNN
+F 1 "20x4_Adafriuit_lcd" H 822 3153 50  0000 R CNN
+F 2 "" H 2400 2900 50  0001 C CNN
+F 3 "" H 2400 2900 50  0001 C CNN
+	1    2750 3000
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9250 5550 9250 6850
+Wire Wire Line
+	9250 6850 9350 6850
+Wire Wire Line
+	9200 5500 9200 6950
+Wire Wire Line
+	9200 6950 9350 6950
+Wire Wire Line
+	9150 5450 9150 7050
+Wire Wire Line
+	9150 7050 9350 7050
+Wire Wire Line
+	9050 6750 9350 6750
+Text Notes 2850 6000 0    50   ~ 0
++- 5v supplied via usb\n
+Wire Wire Line
+	9050 8350 3850 8350
+Wire Wire Line
+	3850 8350 3850 6900
+Wire Wire Line
+	3950 5000 8650 5000
+Wire Wire Line
+	8650 5000 8650 6650
+Wire Wire Line
+	9050 8350 9050 6750
+Wire Wire Line
+	8650 6650 9350 6650
+Wire Wire Line
+	3450 6900 3450 7150
+Wire Wire Line
+	3450 7150 5200 7150
+Wire Wire Line
+	5200 7150 5200 4300
+Wire Wire Line
+	5200 4300 4450 4300
+Wire Wire Line
+	3150 4300 3150 3750
+Wire Wire Line
+	3050 3750 3050 4800
+Wire Wire Line
+	3050 4800 3450 4800
+Wire Wire Line
+	3450 4800 3450 5000
+$Comp
+L Device:R_POT RV?
+U 1 1 5EEBD757
+P 5250 3600
+F 0 "RV?" V 5043 3600 50  0000 C CNN
+F 1 "R_POT" V 5134 3600 50  0000 C CNN
+F 2 "" H 5250 3600 50  0001 C CNN
+F 3 "~" H 5250 3600 50  0001 C CNN
+	1    5250 3600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5250 3750 5250 3950
+Wire Wire Line
+	5250 3950 4350 3950
+Wire Wire Line
+	4350 3950 4350 3750
+Wire Wire Line
+	5400 3600 5400 4300
+Wire Wire Line
+	5400 4300 5200 4300
+Connection ~ 5200 4300
+Wire Wire Line
+	5100 3600 5100 4800
+Wire Wire Line
+	5100 4800 4550 4800
+Connection ~ 3450 4800
+Text Notes 4950 3350 0    50   ~ 0
+CONTRAST POT\n
+Wire Wire Line
+	4550 3750 4550 4800
+Connection ~ 4550 4800
+Wire Wire Line
+	4550 4800 4150 4800
+Wire Wire Line
+	4450 3750 4450 4300
+Connection ~ 4450 4300
+Wire Wire Line
+	4450 4300 3150 4300
+Wire Wire Line
+	4150 3750 4150 4800
+Connection ~ 4150 4800
+Wire Wire Line
+	4150 4800 3450 4800
+Wire Wire Line
+	4050 3750 4050 4650
+Wire Wire Line
+	4050 4650 2350 4650
+Wire Wire Line
+	2350 4650 2350 5000
+Wire Wire Line
+	3250 3750 3250 4600
+Wire Wire Line
+	3250 4600 2450 4600
+Wire Wire Line
+	2450 4600 2450 5000
+Wire Wire Line
+	3350 3750 3350 4550
+Wire Wire Line
+	3350 4550 2550 4550
+Wire Wire Line
+	2550 4550 2550 5000
+Wire Wire Line
+	3450 3750 3450 4500
+Wire Wire Line
+	3450 4500 2650 4500
+Wire Wire Line
+	2650 4500 2650 5000
+Wire Wire Line
+	3550 3750 3550 4450
+Wire Wire Line
+	3550 4450 2750 4450
+Wire Wire Line
+	2750 4450 2750 5000
+Wire Wire Line
+	4250 3750 4250 4400
+Wire Wire Line
+	4250 4400 2150 4400
+Wire Wire Line
+	2150 4400 2150 7000
+Wire Wire Line
+	2150 7000 2350 7000
+Wire Wire Line
+	2350 7000 2350 6900
+$EndSCHEMATC
