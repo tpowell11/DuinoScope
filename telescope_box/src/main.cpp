@@ -42,8 +42,8 @@
   #define focusHbrige1 6
   #define focusHbrige2 7
   #define asclim1      17
-  #define asclim2      18
-  #define declim1      19
+  #define asclim2      16
+  #define declim1      15
 //micro communication defs
   #define toMicro   18
   #define fromMicro 19

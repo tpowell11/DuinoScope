@@ -2,26 +2,30 @@
 #include <LiquidCrystal.h>
 #include <SoftwareSerial.h>
 #include <string.h>
+/*
+Not all pins on the Leonardo and Micro support change interrupts,
+ so only the following can be used for RX: 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI).
+*/
 //Pin Defs
   #define baud 9600
-  #define lcdRs 1
-  #define lcdEn 2
-  #define lcd0  3
-  #define lcd1  4
-  #define lcd2  5
-  #define lcd3  6
-  #define lcd4  7
-  LiquidCrystal lcd(lcdRs, lcdEn, lcd0, lcd1, lcd2, lcd3);
+  #define lcdRs 13
+  #define lcdEn 12
+  #define db7 11
+  #define db6 10
+  #define db5 9
+  #define db4 8 
+  LiquidCrystal lcd(lcdRs, lcdEn, db4, db5, db6, db7); //inits the lcd
+  //softserial for mega
   #define fromMega 14
   #define toMega   16
   SoftwareSerial mega (fromMega, toMega); 
   //function switch
-  #define fxSw   10
-  #define fxSw1  11
+  #define fxSw   6 //pin 1/3 of the sp3t switch 
+  #define fxSw1  5 //pin 3/3 of the sp3t switch
+                  //note: the sp3t switch has its middle pin disconnected
   //resolution switch
-  #define resSw  8
-  #define resSw1 9
-  //encoder coding lines
+  #define resSw  7 //res switch on pin 7
+  //joystick
   #define joy0  12
   #define joy1  13
  
@@ -71,7 +75,7 @@ int sentMode = 0;
   } else if (digitalRead(fxSw1) == HIGH){
     fxSw_S = 1;
     //mode = "Ascention";
-  } else if (digitalRead(fxSw) == HIGH && digitalRead(fxSw1) == HIGH){
+  } else if (digitalRead(fxSw) == LOW && digitalRead(fxSw1) == LOW){
     fxSw_S = 2;
     //mode = "Focus";
   }
