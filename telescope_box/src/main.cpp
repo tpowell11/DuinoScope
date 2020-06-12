@@ -27,20 +27,18 @@
   #define SPI_MISO        50 //ibid
   #define SPI_SCLK        52 //ibid 
 //ui pin defs
-  #define estop       44
-  #define heatled     46
-  #define trackled    48
-  #define warnpiezo   47
-  //#define extcommled  49 temp. depreciated
-  //#define contconnect 45 temp. depreciated
-  #define estopLed    45
+  #define estop       25
+  #define heatled     26
+  #define trackled    27
+  #define warnpiezo   28
+  #define estopLed    29
 //motion control pin defs
-  #define ascHbridge1  2
-  #define ascHbridge2  3
-  #define decHbridge1  4
-  #define decHbridge2  5
-  #define focusHbrige1 6
-  #define focusHbrige2 7
+  #define motApwm 13 //pwm for first motor  
+  #define motBpwm 10//pwm for second motor
+  #define in1 12
+  #define in2 11
+  #define in3 9
+  #define in4 8
   #define asclim1      17
   #define asclim2      16
   #define declim1      15
@@ -87,8 +85,7 @@ void setup() {
     pinMode(heatled, OUTPUT);
     pinMode(trackled, OUTPUT);
     pinMode(warnpiezo, OUTPUT);
-    //pinMode(extcommled, OUTPUT); temp. depreciated
-    //pinMode(contconnect, OUTPUT); temp. depreciated
+    
     pinMode(estopLed, OUTPUT);
   //motion control pins
     pinMode(ascHbridge1, OUTPUT);
