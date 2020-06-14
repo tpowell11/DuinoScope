@@ -3,7 +3,7 @@
 #include <SoftwareSerial.h>
 #include <string.h>
 /*
-Not all pins on the Leonardo and Micro support change interrupts,
+Not all pins on the micro support change interrupts,
  so only the following can be used for RX: 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI).
 */
 //Pin Defs
@@ -26,8 +26,8 @@ Not all pins on the Leonardo and Micro support change interrupts,
   //resolution switch
   #define resSw  7 //res switch on pin 7
   //joystick
-  #define joy0  12
-  #define joy1  13
+  #define joy0  18
+  #define joy1  19
  
 
 void setup() {

@@ -88,12 +88,12 @@ void setup() {
     
     pinMode(estopLed, OUTPUT);
   //motion control pins
-    pinMode(ascHbridge1, OUTPUT);
-    pinMode(ascHbridge2, OUTPUT);
-    pinMode(decHbridge1, OUTPUT);
-    pinMode(decHbridge2, OUTPUT);
-    pinMode(focusHbrige1, OUTPUT);
-    pinMode(focusHbrige2, OUTPUT);
+    pinMode(in1, OUTPUT);
+    pinMode(in2, OUTPUT);
+    pinMode(in3, OUTPUT);
+    pinMode(in4, OUTPUT);
+    //pinMode(focusHbrige1, OUTPUT);
+    //pinMode(focusHbrige2, OUTPUT);
     pinMode(asclim1, INPUT);
     pinMode(asclim2, INPUT);
     pinMode(declim1, INPUT);
@@ -205,10 +205,10 @@ Serial.print("Setup Completed");
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
   //functiuon to stop all motors
   void stop(){
-    digitalWrite(ascHbridge1, LOW);
-    digitalWrite(ascHbridge2, LOW);
-    digitalWrite(decHbridge1, LOW);
-    digitalWrite(decHbridge2, LOW);
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, LOW);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, LOW);
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   void getAsc() {
@@ -231,24 +231,7 @@ void loop() {
     if (digitalRead(estop) == HIGH){
         digitalWrite(estopLed, HIGH);
     }
-    if (ascLim_r == 1){
-      Serial.write("ascL1\n");
-      stop();
-    }
-    if (ascLim_r1 == 1){
-      Serial.write("ascL2\n");
-      stop();
-    }
-    if (decLim_r = 1){
-      Serial.write("decL1\n");
-      stop();
-    }
-  /*
-  int test;
-  test = Serial.read();
-  Serial.write(test, DEC);
-  */
-  //serial to micro {telescope_pendant}
+    
   
   //encoder stuff
     //create a 16 bit variable to hold the encoders position
