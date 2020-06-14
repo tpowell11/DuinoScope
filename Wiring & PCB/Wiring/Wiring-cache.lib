@@ -214,6 +214,23 @@ X ~RESET ~ 950 450 100 L 50 50 1 1 B
 ENDDRAW
 ENDDEF
 #
+# Device_Joystick
+#
+DEF Device_Joystick U 0 40 Y Y 1 F N
+F0 "U" -150 0 50 H V C CNN
+F1 "Device_Joystick" 0 100 50 H V C CNN
+F2 "" -150 0 50 H I C CNN
+F3 "" -150 0 50 H I C CNN
+DRAW
+T 0 0 -150 50 0 0 0 "Dual 10K Potentiometers" Normal 0 C C
+S -600 600 600 -600 0 1 0 N
+X Ground ~ -50 700 100 D 50 50 1 1 I
+X Left/Right ~ -150 700 100 D 50 50 1 1 I
+X Up/Down ~ 50 700 100 D 50 50 1 1 I
+X VCC ~ 150 700 100 D 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
 # Device_LED
 #
 DEF Device_LED D 0 40 N N 1 F N
