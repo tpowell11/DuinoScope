@@ -3,6 +3,7 @@
 #include<Wire.h>
 #include <SPI.h>/* Include the SPI library for the arduino boards */
 #include <Stepper.h>
+#include <TinyGPS++.h> //used with the adafruit ultimate gps
 //encoder pin defs
   
 

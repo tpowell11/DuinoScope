@@ -731,4 +731,46 @@ Wire Wire Line
 	9700 11350 11500 11350
 Wire Wire Line
 	11500 11350 11500 10800
+$Comp
+L Device:Joystick U?
+U 1 1 5EE6A12F
+P 2800 9300
+F 0 "U?" H 3428 9404 50  0000 L CNN
+F 1 "Joystick" H 3428 9313 50  0000 L CNN
+F 2 "" H 2650 9300 50  0001 C CNN
+F 3 "" H 2650 9300 50  0001 C CNN
+	1    2800 9300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 6900 2650 8600
+Wire Wire Line
+	2850 8600 2850 7100
+Wire Wire Line
+	2850 7100 2750 7100
+Wire Wire Line
+	2750 7100 2750 6900
+$Comp
+L Device:Adafruit_Ultimate_GPS U?
+U 1 1 5EE87A51
+P 3400 11350
+F 0 "U?" V 2775 10658 50  0000 C CNN
+F 1 "Adafruit_Ultimate_GPS" V 2866 10658 50  0000 C CNN
+F 2 "" H 2950 9700 50  0001 C CNN
+F 3 "" H 2950 9700 50  0001 C CNN
+	1    3400 11350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9550 6050 7950 6050
+Wire Wire Line
+	7950 6050 7950 11650
+Wire Wire Line
+	7950 11650 3500 11650
+Wire Wire Line
+	9350 8650 8050 8650
+Wire Wire Line
+	8050 8650 8050 11550
+Wire Wire Line
+	8050 11550 3500 11550
 $EndSCHEMATC
