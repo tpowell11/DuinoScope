@@ -1,0 +1,14 @@
+{
+  "name": "server-app",
+  "version": "1.0.0",
+  "description": "server application for the telescope manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom Powell",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
